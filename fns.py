@@ -10,6 +10,7 @@ def measures():
 	H = ruler.getMeasure
 	#print 'waist [cm]: ',ruler.getMeasure(human,'measure/measure-waist-circ-decr|incr','metric')
 	#data = ruler.getMeasure(human,'measure/measure-waist-circ-decr|incr','metric')
+	height = human.getHeightCm()	
 	neck_cir = H(human,'measure/measure-neck-circ-decr|incr','metric')
 	neck_ht = H(human,'measure/measure-neck-height-decr|incr','metric')
 	ua_cir = H(human,'measure/measure-upperarm-circ-decr|incr','metric')
@@ -31,7 +32,7 @@ def measures():
 	knee = H(human,'measure/measure-knee-circ-decr|incr','metric')
 	ankle = H(human,'measure/measure-ankle-circ-decr|incr','metric')
 		
-	data = [neck_cir, neck_ht, ua_cir, ua_len, la_len, wrist, fc_dist, bust, ubust, waist, np2waist, w2hip, sh_dist, hip_cir, ul_ht, th_cir, ll_ht, calf_cir, knee, ankle]
+	data = [height, neck_cir, neck_ht, ua_cir, ua_len, la_len, wrist, fc_dist, bust, ubust, waist, np2waist, w2hip, sh_dist, hip_cir, ul_ht, th_cir, ll_ht, calf_cir, knee, ankle]
 	return data
 		
 def change(old_m):
@@ -39,11 +40,11 @@ def change(old_m):
 	new = measures()
 	mat = []
 	
-	for  i in range(20):
+	for  i in range(21):
 		delta = new[i] - old[i]
 		if  delta == 0:
 			mat.append(old[i])
 		else: 
-			mat.append(new[i])s
+			mat.append(new[i])
 			
 	return 	mat
