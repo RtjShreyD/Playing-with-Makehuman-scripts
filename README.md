@@ -1,4 +1,4 @@
-# Playing-with-Makehuman-scripts
+# LOOKUP TABLES-with-Makehuman-scripts 
 
 WE are creating lookup tables for makehuman so that we can relate makehuman inputs with real metric measurements.
 Using Makehuman-Master version for Python3 and PyQT5.
