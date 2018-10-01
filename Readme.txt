@@ -8,7 +8,6 @@ To run the scripts follow the steps:(Linux/Windows)
 5. Execute in Makehuman GUI.
 4. Similarly trial3_Allmodifiers2.py script can also be run. This script can generate any kind of humanoid model if we set values accordingly in the script.
 
-Note: These files are compatible with Makehuman Python2.7 package only
-      lookup.xlsx file is also present in the folder that can just demonstrate how the script has written data till now.
+Note: lookup.xlsx file is also present in the folder that can just demonstrate how the script has written data till now.
       Script is still under development so a whole lot of changes have to be made while adding more nested for loops, currently only Muscle has been changed and a demo table is created
       
