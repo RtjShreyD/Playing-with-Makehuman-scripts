@@ -6,7 +6,7 @@ Measurerer = (__import__("0_modeling_a_measurement"))
 
 human = G.app.mhapi.modifiers.human
 
-ruler = Measurerer.Ruler()
+ruler = Measurerer.Ruler()  
 
 print 'waist [cm]: ',ruler.getMeasure(human,'measure/measure-waist-circ-decr|incr','metric')
 
@@ -19,7 +19,7 @@ human.setGender(1.0)
 human.setBodyProportions(1.0)
 ###macro_end###
 
-##measure modifiers##
+##measure modifiers##Currently arbitrary values are set but any value can be set between 0.0 to 1.0
 human.getModifier('measure/measure-neck-circ-decr|incr').setValue(0.5)
 human.getModifier('measure/measure-neck-height-decr|incr').setValue(1.0)
 human.getModifier('measure/measure-upperarm-circ-decr|incr').setValue(0.7)
@@ -42,15 +42,15 @@ human.getModifier('measure/measure-knee-circ-decr|incr').setValue(0.5)
 human.getModifier('measure/measure-ankle-circ-decr|incr').setValue(0.5)
 ##measure modifiers_ends##
 
-human.applyAllTargets()   
+human.applyAllTargets() #This is to apply the above value changes to the model  
 #print 'waist [cm], 1.0: ',ruler.getMeasure(human,'measure/measure-waist-circ-decr|incr','metric')
 
 ##print( "waist [cm], -1.0: ",ruler.getMeasure(human,'measure/measure-waist-circ-decr|incr','metric'))   print syntax when using Python3 Makehuman package.
 
-MHScript.screenShot('front.png')
+MHScript.screenShot('front.png') #takes screenshot and save to grab folder
 
-MHScript.modifyRotationZ(-90.0)
+MHScript.modifyRotationZ(-90.0) #rotate to take screenshot in side view
 
 MHScript.screenShot('side.png')
 
-MHScript.modifyRotationZ(90.0)
+MHScript.modifyRotationZ(90.0) #rotate to return back to front view
