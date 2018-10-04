@@ -11,3 +11,9 @@ To run the scripts follow the steps:(Linux/Windows)
 Note: lookup.xlsx file is also present in the folder that can just demonstrate how the script has written data till now.
       Script is still under development so a whole lot of changes have to be made while adding more nested for loops, currently only Muscle has been changed and a demo table is created
       
+For Export to Matlab:-
+Use trial3_Allmodifiers2.py script when we have to set the modifiers value in a script and then export the human body images to MATLAB for measurement computation.
+Follow the steps to export the model as an image:-
+1. Open MH--->set White background+Grid off+Show wire mesh+Show smoothened mesh. This has to be the state of model before script is run.
+Note: White background scaling will give problems when height is increased, as the humanoid will become longer than the background and then while exporting into MATLAB a perfect binary image will not be created. To solve this issue before starting Makehuman, copy 0_modelling_backgrounds.py file from here and replace it with the same file in Makehuman directory. I have changed the background scaling in this file so that it does not affect the export to MATLAB.
+2. After above conditions met run the script the screenshots will be saved. Locate them in Makehuman folder/Grab/  in My documents(Windows) andin Home/Makehuman/v13py/grab/ in Linux. 
