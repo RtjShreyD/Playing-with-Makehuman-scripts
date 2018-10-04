@@ -19,4 +19,4 @@ Note: White background scaling will give problems when height is increased, as t
 2. After above conditions met run the script the screenshots will be saved. Locate them in Makehuman folder/Grab/  in My documents(Windows) andin Home/Makehuman/v13py/grab/ in Linux. 
 
 For any kind of guidance/assistance Makehuman community forums is very helpful visit http://www.makehumancommunity.org/forum/
-And create an account for posting queries.
+And create an account for posting queries
