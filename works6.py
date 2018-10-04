@@ -4,15 +4,15 @@ from fns import measures, change
 from core import G
 import humanmodifier
 
-conn = sqlite3.connect("lookup.db")
+conn = sqlite3.connect("lookup.db")  #to create a new database file on system or connect to existing
 print("Created/Connected \n")
-c = conn.cursor() 
+c = conn.cursor() #to define the cursor
 
-MHScript.loadModel('default')
-human = G.app.mhapi.modifiers.human
-human.setGender(1)
-n1 = measures()
-
+MHScript.loadModel('default') #Loading a default base model already saved in MH
+human = G.app.mhapi.modifiers.human #select the current humanoid model and refer to it as object variable human
+human.setGender(1) #Setting gender of the model as 1 ie, defining the following code for Male only
+n1 = measures()  #Function to return an array of all computed metric measurements(in cms)
+##Following are iterative loops for setting values of each modifier of the default model. 
 def iters(human):	
 	
 	for i2 in range (11):
@@ -76,15 +76,15 @@ def iters4 (human):
 						
 						
 						
-##create table for change in muscles only....
+##create table for change in muscles only....CREATE TABLE is an SQL coomand to create a table with the defined fields(columns)
 c.execute('''CREATE TABLE `muscle` (`delta_fc`	INTEGER,`height`	REAL,`neck_cir`	REAL,`neck_ht`	REAL,`ua_cir`	REAL,`ua_len`	REAL,`la_len`	REAL,`wrist`	REAL,`fc_dist`	REAL,`bust`	REAL,`ubust`	REAL,`waist`	REAL,`np2waist`	REAL,`w2hip`	REAL,`sh_dist`	REAL,`hip_cir`	REAL,`ul_ht`	REAL,`th_cir`	REAL,`ll_ht`	REAL,`calf_cir`	REAL,`knee`	REAL,`ankle`	REAL)''')
-for  i in range(11):
+for  i in range(11):  #range is set 11 because the scale in Makehuman is from 0.0 to 1.0 
 	a = 0.1*(i)
 	human.setMuscle(a)
 	n1 = change(n1)
 	nx = n1
 	nx.insert(0,a)
-	c.execute('''INSERT INTO `muscle` VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',nx)
+	c.execute('''INSERT INTO `muscle` VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',nx) #SQL command Insert into 'muscle' values has been called using c.execute, this will insert values of array into the table
 	
 conn.commit()
 ##.....musles_ends.....##
@@ -106,7 +106,7 @@ for  i in range(11):
 		nx.insert(0,a2)
 		c.execute('''INSERT INTO `mus+wt` VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',nx)
 
-conn.commit()
+conn.commit() #This saves the above stored values in the table
 ##.....muscles, weight_ends....##
 	
 ##create table for change in muscle, weight, height...
